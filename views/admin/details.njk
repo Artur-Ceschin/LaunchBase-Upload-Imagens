@@ -1,0 +1,41 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <div class="info">
+        <h2>Receita:
+            {{ recipies.name}}</h2>
+
+        <button>
+            <a href="/admin/{{ recipies.id}}/edit">Ediar receita</a>
+        </button>
+    </div>
+
+    <div class="content">
+        <img src="{{recipies.url_image}}" alt="">
+
+        <div class="content-header">
+            <h1>{{ recipies.name }}</h1>
+            <p>por
+                {{ recipies.author }}</p>
+        </div>
+
+        <div class="content-recipies">
+            <h2>Ingredientes</h2>
+            <ul>
+                {% for recipie in recipies.ingredients %}
+                    <li> {{recipie}}</li>
+                {% endfor %}
+            </ul>
+            <h2>Modo de preparo</h2>
+            <ul>
+                {% for recipie in recipies.preparation %}
+                    <li> {{recipie}}</li>
+                {% endfor %}
+            </ul>
+            <h2>informacoes adicionais</h2>
+            <div class="last-item">
+                <span>{{ recipies.aditional_info}}</span>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

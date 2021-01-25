@@ -1,0 +1,25 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+    <div class="info">
+        <h2>Gerenciar receitas</h1>
+
+        <button>
+            <a href="/admin/create">Nova receita</a>
+        </button>
+    </div>
+    <div class="cards">
+
+        {% for item in items %}
+            <div class="card">
+                <img src="{{ item.url_image}}" alt="">
+                <div class="text">
+                    <p>{{item.name}}</p>
+                    <p>{{item.author}}</p>
+                    <a href="/admin/details/{{item.id}}">Vizualizar</a>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock content %}

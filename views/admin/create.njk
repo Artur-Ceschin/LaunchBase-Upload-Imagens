@@ -1,0 +1,51 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+    <form method="POST" action="/admin">
+        <div class="info">
+            <h2>Criando receita</h1>
+
+            <button type="submit">
+                Salvar receita
+            </button>
+        </div>
+        <h3>Imagem da receita</h3>
+        <div>
+            <input type="url" name="url_image" placeholder="https://" value="{{recipies.url_image}}"/>
+        </div>
+
+        <h3>Nome da receita</h3>
+        <div>
+            <input type="text" name="name" value="{{recipies.name}}"/>
+        </div>
+
+        <h3>Autor da receita</h3>
+        <div>
+            <input type="text" name="author" value="{{recipies.author}}"/>
+        </div>
+
+        <h3>Ingredientes</h3>
+        <div class="ingredientsEditInputAll">
+            <div class="ingredientsEditInput space">
+                <input type="text" placeholder="12 Colheres de Chá de Açúcar" name="ingredients[]" value="{{recipies.ingredients}}">
+            </div>
+        </div>
+        <button class="AddButton" type="button" id="addIngredients">Adicionar novo ingrediente</button>
+
+        <h3>Modo de preparo</h3>
+        <div class="preparationAll">
+            <div class="preparationInput space">
+                <input type="text" name="preparation[]" value="{{ recipies.preparation}}">
+            </div>
+        </div>
+        <button class="AddButton" type="button" id="addPreparation">Adicionar novo passo</button>
+
+        <h3>Informacaoes adicionais</h3>
+        <div>
+            <textarea class="input-height" type="text" name="aditional_info" cols="145" rows="10">{{ recipies.aditional_info}}</textarea>
+        </div>
+    </form>
+
+    <script src="/js/addInput.js"></script>
+{% endblock content %}

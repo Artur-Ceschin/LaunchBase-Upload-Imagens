@@ -1,0 +1,55 @@
+{
+  "infos": [
+    {
+      "id": 1,
+      "url_image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
+      "name": "Triplo Bacon Burguer",
+      "author": "Artur Ceshin",
+      "ingredients": [
+        "Alho",
+        "5 gramas de manteiga",
+        "Alface",
+        "Brócolis"
+      ],
+      "preparation": [
+        "Pique tudo em uma vasilha",
+        "Frite o Hamburguer",
+        "Coloque tudo em uma vasilha"
+      ],
+      "aditional_info": "Preaqueça a chapa, frigideira ou grelha por 10 minutos antes de levar os hambúrgueres. Adicione um pouquinho de óleo ou manteiga e não amasse os hambúrgueres! Preaqueça a chapa, frigideira ou grelha por 10 minutos antes de levar os hambúrgueres. Adicione um pouquinho de óleo ou manteiga e não amasse os hambúrgueres!Preaqueça a chapa, frigideira ou grelha por 10 minutos antes de levar os hambúrgueres. Adicione um pouquinho de óleo ou manteiga e não amasse os hambúrgueres!Preaqueça a chapa, frigideira ou grelha por 10 minutos antes de levar os hambúrgueres. Adicione um pouquinho de óleo ou manteiga e não amasse os hambúrgueres!"
+    },
+    {
+      "id": 2,
+      "url_image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/pizza.png",
+      "name": "Pizza 4 estações",
+      "author": "Fabiana Melo",
+      "ingredients": [
+        "1 xícara (chá) de leite",
+        "Queijo,1 xícara (chá) de leite,1 colher (sopa) de margarina",
+        "1 ovo"
+      ],
+      "preparation": [
+        "Despeje a massa em uma assadeira para pizza untada com margarina e leve ao forno preaquecido por 20 minutos.",
+        "Cubra a massa com mussarela ralada, tomate e orégano a gosto.",
+        "Tempere com sal"
+      ],
+      "aditional_info": "Pizza de liquidificador é uma receita deliciosa e supersimples de preparar. Feita toda no liquidificador, ela é bem prática para o dia a dia. Aqui no TudoGostoso você também encontra diversas delícias práticas feitas no liquidificador: massa de panqueca, torta de frango de liquidificador, pão de queijo de liquidificador, bolo de banana, bolo de chocolate e muito mais!"
+    },
+    {
+      "id": 3,
+      "url_image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/lasanha.png",
+      "name": "Lasanha mac n' cheese",
+      "author": "Juliano Vieira",
+      "ingredients": [
+        "massa pronta de lasanha",
+        "400 g de mussarela ralada"
+      ],
+      "preparation": [
+        "Em uma panela, coloque a manteiga para derreter.",
+        "Acrescente a farinha de trigo e misture bem com auxílio de um fouet.",
+        "Adicione o leite e misture até formar um creme homogêneo."
+      ],
+      "aditional_info": "Desligue o fogo e acrescente o creme de leite; misture bem e reserve."
+    }
+  ]
+}

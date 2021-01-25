@@ -1,0 +1,70 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+    <div>
+        <div class="info">
+            <h2>Editando receita</h2>
+            <form id="form-delete" method="POST" action="/admin?_method=DELETE">
+                <button type="submit">
+                    Deletar
+                </button>
+
+                <input type="hidden" name="id" value="{{recipies.id}}">
+                
+            </form>
+        </div>
+        <form id="form-put" method="POST" action="/admin?_method=PUT">
+            <button type="submit">
+                Salvar receita
+            </button>
+            <input type="hidden" name="id" value="{{recipies.id}}">
+
+            <h3>Imagem da receita</h3>
+            <div>
+                <input type="url" name="url_image" placeholder="https://" value="{{recipies.url_image}}"/>
+            </div>
+
+            <h3>Nome da receita</h3>
+            <div>
+                <input type="text" name="name" value="{{recipies.name}}"/>
+            </div>
+
+            <h3>Autor da receita</h3>
+            <div>
+                <input type="text" name="author" value="{{recipies.author}}"/>
+            </div>
+
+            <h3>Ingredientes</h3>
+            <div class="ingredientsEditInputAll">
+                {% for ingredient in recipies.ingredients %}
+                    <div class="ingredientsEditInput space">
+                        <input type="text" placeholder="12 Colheres de Chá de Açúcar" name="ingredients[]" value="{{ingredient}}">
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="AddButton" type="button" id="addIngredients">Adicionar novo ingrediente</button>
+
+            <h3>Modo de preparo</h3>
+            <div class="preparationAll">
+                {% for preparation in recipies.preparation %}
+                    <div class="preparationInput space">
+                        <input type="text" name="preparation[]" value="{{ preparation}}">
+                    </div>
+                {% endfor %}
+
+            </div>
+            <button class="AddButton" type="button" id="addPreparation">Adicionar novo passo</button>
+
+            <h3>Informacaoes adicionais</h3>
+            <div>
+                <textarea class="input-height" type="text" name="aditional_info" cols="145" rows="10">{{ recipies.aditional_info}}</textarea>
+            </div>
+        </form>
+
+    </form>
+
+</div>
+<script src="/js/addInput.js"></script>
+<script src="../../js/delete.js"></script>
+{% endblock content %}

@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.container {
+    max-width: 940px;
+    margin: 0 auto;
+    margin-top: 3%;
+}
+
+/* HEADER */
+.container-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3.3%;
+}
+
+.container-header .img {
+    margin-right: 9%;
+}
+
+.container-header a {
+    margin-right: 2%;
+    text-decoration: none;
+    color: #111111;
+}
+
+/* SECTION 1 */
+.container-section {
+    background-color: #FBDFDB;
+    border-radius: 30px;
+}
+
+.container-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.section-content {
+    width: 316px;
+    margin-left: 4.3%;
+}
+
+.section-content h1 {
+    font-size: 32px;
+}
+
+.section-content p {
+    height: 86px;
+    font-size: 18px;
+    opacity: 0.7;
+    line-height: 28px;
+}
+
+.container-section img {
+    margin-right: 7.1%;
+}
+
+/* CARDS */
+
+.container-cards {
+    margin: 4.5% 0 4.5% 0;
+}
+
+.container-cards h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card img {
+    width: 300px;
+    height: 120px;
+    border-radius: 15px;
+    margin: 1.4%;
+    margin-bottom: 1.8%;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-text h3 {
+    margin: 1.8% 0 0.4% 0;
+    font-size: 18px;
+    color: #111111;
+}
+
+.card-text p {
+    font-size: 14px;
+    color: #777777;
+}
+
+/* FOOTER */
+footer {
+    background-color: #EEEEEE;
+    text-align: center;
+}
+
+footer p {
+    padding: 2.1% 0 2.1% 0;
+    font-size: 14px;
+    color: #999999;
+}
+
+.selected {
+    font-weight: bold;
+}
+
+/* ACTIVE CARD */
+
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal {
+    width: 660px;
+    height: 413px;
+    margin: 20vh auto;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal img {
+    width: 600px;
+    height: 200px;
+    object-fit: cover;
+    margin: 2.7% 2.1% 1.8% 2.1%;
+    border-radius: 15px;
+}
+
+.modal h3 {
+    font-size: 24px;
+    margin-bottom: 0.4%;
+    margin-top: 2%;
+}
+
+.modal p {
+    font-size: 18px;
+    color: #777777;
+}
+
+.close-modal {
+    font-size: 16px;
+    color: #999999;
+    margin-top: 12.3%;
+    cursor: pointer;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* RECIPES CONTENT */
+.container-center {
+    text-align: center;
+}
+
+.image img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.container-center h1 {
+    margin-top: 4%;
+    font-size: 36px;
+    color: #111111;
+}
+
+.container p {
+    font-size: 20px;
+    color: #777777;
+}
+
+.container-content {
+    margin-bottom: 3.1%;
+}
+
+.container-content h3 {
+    font-size: 24px;
+    display: inline-block;
+    margin-right: 0.6%;
+    margin-bottom: 1.6%;
+}
+
+.container-content span {
+    font-size: 12px;
+    color: #999999;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.container-content UL {
+    margin-left: 15px;
+}
+
+.container-content li,p {
+    font-size: 18px;
+    color: #444444;
+    line-height: 28px;
+}
+
+/* HIDE CONTENT */
+
+ .hide{
+     display: none;
+ }
