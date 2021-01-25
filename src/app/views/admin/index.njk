@@ -10,13 +10,13 @@
     </div>
     <div class="cards">
 
-        {% for item in items %}
+        {% for recipie in recipes %}
             <div class="card">
-                <img src="{{ item.url_image}}" alt="">
+                <img src="{{ recipie.image}}" alt="">
                 <div class="text">
-                    <p>{{item.name}}</p>
-                    <p>{{item.author}}</p>
-                    <a href="/admin/details/{{item.id}}">Vizualizar</a>
+                    <p>{{recipie.title}}</p>
+                    <p>{{recipie.author}}</p>
+                    <a href="/admin/details/{{recipie.id}}">Vizualizar</a>
                 </div>
             </div>
         {% endfor %}

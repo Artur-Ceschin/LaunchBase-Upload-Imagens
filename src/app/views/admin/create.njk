@@ -12,18 +12,14 @@
         </div>
         <h3>Imagem da receita</h3>
         <div>
-            <input type="url" name="url_image" placeholder="https://" value="{{recipies.url_image}}"/>
+            <input type="url" name="image" placeholder="https://" value="{{recipies.image}}"/>
         </div>
 
         <h3>Nome da receita</h3>
         <div>
-            <input type="text" name="name" value="{{recipies.name}}"/>
+            <input type="text" name="title" value="{{recipies.title}}"/>
         </div>
 
-        <h3>Autor da receita</h3>
-        <div>
-            <input type="text" name="author" value="{{recipies.author}}"/>
-        </div>
 
         <h3>Ingredientes</h3>
         <div class="ingredientsEditInputAll">
@@ -43,7 +39,7 @@
 
         <h3>Informacaoes adicionais</h3>
         <div>
-            <textarea class="input-height" type="text" name="aditional_info" cols="145" rows="10">{{ recipies.aditional_info}}</textarea>
+            <textarea class="input-height" type="text" name="information" cols="145" rows="10">{{ recipies.information}}</textarea>
         </div>
     </form>
 

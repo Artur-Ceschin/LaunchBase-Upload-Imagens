@@ -44,7 +44,7 @@ header img {
     width: 172px;
     height: 80px;
     border-radius: 9px;
-    margin-right: 1.5%;
+    margin-right: 3.5%;
     object-fit: cover;
 }
 
@@ -83,6 +83,16 @@ h2 {
 
 }
 
+/* CARD-CHEF */
+.cards-chef{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.cards-chef .card img{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
 /* BOTAO EDITAR */
 
 button {
