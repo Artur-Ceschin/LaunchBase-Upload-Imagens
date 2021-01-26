@@ -8,7 +8,9 @@ const {
 
 module.exports = {
     all(callback) {
-        db.query('SELECT * FROM recipes', function (err, results) {
+        db.query(`SELECT recipes.*, chefs.name AS chef_name
+        FROM recipes
+        LEFT JOIN chefs ON (recipes.chef_id =  chefs.id)`, function (err, results) {
             if (err) {
                 throw ('DataBase error ' + err.message)
             }
@@ -49,13 +51,29 @@ module.exports = {
         })
     },
     find(id, callback) {
-        db.query('SELECT * FROM recipes WHERE id = $1', [id], function (err, results) {
+        db.query(`SELECT recipes.*, chefs.name AS chef_name
+        FROM recipes
+        LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+        WHERE recipes.id = $1`, [id], function (err, results) {
             if (err) {
                 throw ('DataBase error ' + err)
             }
             callback(results.rows[0])
         })
     },
+    findBy(id, callback) {
+        db.query(`
+          SELECT recipes.*, chefs.name AS chef_name
+          FROM recipes
+          LEFT JOIN chefs ON (recipes.chef_id =  chefs.id)
+          WHERE recipes.title ILIKE '%${id}%'
+          GROUP BY recipes.id, chefs.name
+          `, function(err, results) {
+          if(err) throw `Database error! ${err}`
+          
+          callback(results.rows)
+        })
+      },
     update(data, callback) {
 
         const query = `
@@ -94,6 +112,13 @@ module.exports = {
             }
 
             return callback()
+        })
+    },
+    chefsSelectOptions(callback) {
+        db.query(`SELECT name, id FROM chefs`, function(err, results) {
+            if (err) throw 'Database Error!'
+
+            callback(results.rows)
         })
     }
 }

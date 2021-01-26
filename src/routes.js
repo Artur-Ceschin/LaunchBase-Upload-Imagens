@@ -1,6 +1,6 @@
 const express = require('express')
 const routes = express.Router()
-const admin = require('./app/controllers/admin')
+const recipe = require('./app/controllers/recipe')
 const chef = require('./app/controllers/chef')
 // const starter = require('./app/controllers/starter')
 
@@ -15,22 +15,28 @@ const chef = require('./app/controllers/chef')
 // routes.get('/starter/recipie-content/:id', starter.recipieContent)
 
 routes.get('/', function (req, res) {
-    return res.redirect('/admin')
+    return res.redirect('/recipe')
 })
-routes.get('/admin', admin.index)
-routes.get('/admin/details/:id', admin.show)
-routes.get('/admin/create', admin.create)
-routes.get('/admin/:id/edit', admin.edit)
+routes.get('/recipe', recipe.index)
+routes.get('/recipe/details/:id', recipe.show)
+routes.get('/recipe/create', recipe.create)
+routes.get('/recipe/:id/edit', recipe.edit)
 
 
-routes.post('/admin', admin.post)
-routes.put('/admin', admin.put)
-routes.delete('/admin', admin.delete)
+routes.post('/recipe', recipe.post)
+routes.put('/recipe', recipe.put)
+routes.delete('/recipe', recipe.delete)
 
 
 // CHEF
 
 routes.get('/chef', chef.index)
 routes.get('/chef/create', chef.create)
+routes.get('/chef/details/:id', chef.show)
+routes.get('/chef/:id/edit', chef.edit)
+
+routes.post('/chef', chef.post)
+routes.put('/chef', chef.put)
+routes.delete('/chef', chef.delete)
 
 module.exports = routes

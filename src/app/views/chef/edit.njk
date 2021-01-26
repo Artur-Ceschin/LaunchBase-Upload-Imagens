@@ -1,0 +1,37 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+    <div>
+        <div class="info">
+            <h2>Editando receita</h2>
+            <form id="form-delete" method="POST" action="/chef?_method=DELETE">
+                <button type="submit">
+                    Deletar
+                </button>
+
+                <input type="hidden" name="id" value="{{chefs.id}}">
+
+            </form>
+        </div>
+        <form id="form-put" method="POST" action="/chef?_method=PUT">
+            <button type="submit">
+                Salvar receita
+            </button>
+            <input type="hidden" name="id" value="{{chefs.id}}">
+
+            <h3>Nome</h3>
+            <div>
+                <input type="text" name="name" value="{{chefs.name}}"/>
+            </div>
+
+            <h3>Seu Avatar</h3>
+            <div>
+                <input type="url" name="avatar_url" placeholder="https://" value="{{chefs.avatar_url}}"/>
+            </div>
+
+        </form>
+
+    </div>
+<script src="../../js/delete.js"></script>
+{% endblock content %}

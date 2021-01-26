@@ -20,9 +20,9 @@ module.exports = {
         const query = `
         INSERT INTO chefs (
             name,
-            avatar_url
+            avatar_url,
             created_at
-        ) VALUES ($1, $2, $3,)
+        ) VALUES ($1, $2, $3)
         RETURNING id
     `
 
@@ -41,33 +41,39 @@ module.exports = {
         })
     },
     find(id, callback) {
-        db.query('SELECT * FROM chefs WHERE id = $1', [id], function (err, results) {
+        db.query(`SELECT chefs.*, COUNT(recipes) AS total_recipes
+        FROM chefs
+        LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
+        WHERE chefs.id = $1
+        GROUP BY chefs.id`, [id], function (err, results) {
             if (err) {
                 throw ('DataBase error ' + err)
             }
             callback(results.rows[0])
         })
     },
+    findChefRecipes(id, callback) {
+        db.query(`
+            SELECT *
+            FROM recipes
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+            WHERE chefs.id = $1`, [id], function(err, results) {
+                if(err) throw `Database error! + ${err}`
+    
+                callback(results.rows)
+            })
+        },
     update(data, callback) {
 
         const query = `
         UPDATE chefs SET
-            image=($1),
-            title=($2),
-            chef_id=($3),
-            ingredients=($4),
-            preparation=($5),
-            information=($6)
-        WHERE id = $7
+            avatar_url=($1),
+            name=($2)
+        WHERE id = $3
         `
         let values = [
-            data.image,
-            data.title,
-            data.chefs,
-            data.ingredients,
-            data.preparation,
-            data.information,
-            data.id
+            data.avatar_url,
+            data.name,
         ]
 
         db.query(query, values, function (err, results) {

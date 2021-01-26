@@ -12,13 +12,18 @@
     </head>
     <body>
         <header>
-            <a href="/"><img src="/assets/logo.png" alt="Logo Foodfy"></a>
+            <div class="header-content">
+                <a href="/"><img src="/assets/logo.png" alt="Logo Foodfy"></a>
+                <div class="links">
+                    <a href="/recipe">Receitas</a>
+                    <a href="/chef">Chef</a>
+                </div>
+            </div>
         </header>
 
         <div class="container">
             {% block content %}{% endblock content %}
         </div>
-
-        
+        <script src="/js/active.js"></script>
     </body>
 </html>

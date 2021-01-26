@@ -8,7 +8,7 @@
 This project is the third challenge from the bootcamp Launchbase from Rocketseat.
 
 ## **Challenge**
-https://github.com/Rocketseat/bootcamp-launchbase-desafios-04/blob/master/desafios/04-admin-foodfy.md
+https://github.com/Rocketseat/bootcamp-launchbase-desafios-04/blob/master/desafios/04-recipe-foodfy.md
 
 ## 🚀 Technologies used
 

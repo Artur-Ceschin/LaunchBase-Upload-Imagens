@@ -18,14 +18,31 @@ header {
     height: 80px;
     background-color: #111111;
     margin-bottom: 50px;
+    
 }
 
-header img {
-    position: relative;
-    top: 27px;
-    left: 231px;
+header .header-content{
+    position: absolute;
+    left: 18%;
+    display: flex;
+    align-items: center;
+    margin: 25px auto;
+}
+header .header-content a:first-child{
+    margin-right: 50px;
+}
+header .header-content .links{
+    display: flex;
 }
 
+header .header-content .links a {
+    color: #999999;
+    margin-right: 20%;
+}
+
+header .header-content .links a.active{
+    color: white;
+}
 
 /* CARD */
 
@@ -196,4 +213,24 @@ form .space{
 form textarea{
     margin-bottom: 30px;
     padding: 2%;
+}
+
+/* CHEF-PAGE */
+.chef-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chef-page img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 3%;
+}
+.chef-page p{
+    color: #777777;
+    font-size: 20px;
+    margin-bottom: 50px;
 }

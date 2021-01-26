@@ -6,12 +6,14 @@ module.exports = {
     index(req, res) {
 
         Recipe.all(function(recipes){
-            return res.render('admin/index', {recipes})
+            return res.render('recipe/index', {recipes})
         })
 
     },
     create(req, res) {
-        return res.render('admin/create')
+        Recipe.chefsSelectOptions(function(options) {
+            return res.render('recipe/create', { chefOptions: options })
+        })
     },
     post(req, res) {    
         const keys = Object.keys(req.body)
@@ -24,7 +26,7 @@ module.exports = {
         }
 
         Recipe.create(req.body, function (item) {
-            return res.redirect(`/admin/details/${item.id}`)
+            return res.redirect(`/recipe/details/${item.id}`)
         })
     
         return
@@ -35,7 +37,7 @@ module.exports = {
                 return res.send('Recipe not found')
             }
 
-            return res.render('admin/details', {recipies})
+            return res.render('recipe/details', {recipies})
         })
     },
     edit(req, res) {
@@ -44,7 +46,7 @@ module.exports = {
                 return res.send('Recipe not found')
             }
 
-            return res.render(`admin/edit`, {recipies})
+            return res.render(`recipe/edit`, {recipies})
         })
     },
     put(req, res) {
@@ -57,12 +59,12 @@ module.exports = {
 
         }
         Recipe.update(req.body, function(){
-            return res.redirect(`/admin/details/${req.body.id}`)
+            return res.redirect(`/recipe/details/${req.body.id}`)
         })
     },
     delete(req, res) {
         Recipe.delete(req.body.id, function(){
-            return res.redirect(`/admin/`)
+            return res.redirect(`/recipe/`)
         })
     }
 }
