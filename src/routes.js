@@ -2,21 +2,26 @@ const express = require('express')
 const routes = express.Router()
 const recipe = require('./app/controllers/recipe')
 const chef = require('./app/controllers/chef')
+const admin = require('./app/controllers/admin')
 // const starter = require('./app/controllers/starter')
 
-// routes.get('/', starter.redirect)
+// routes.get('/', admin.redirect)
 
-// routes.get('/starter/index', starter.index)
+routes.get('/admin/index', admin.index)
 
-// routes.get('/starter/about', starter.about)
+routes.get('/admin/about', admin.about)
 
-// routes.get('/starter/recipies', starter.recipies)
+routes.get('/admin/recipe', admin.show)
+
+routes.get('/admin', admin.show)
+
+routes.get('/admin/chefs', admin.chef)
 
 // routes.get('/starter/recipie-content/:id', starter.recipieContent)
 
-routes.get('/', function (req, res) {
-    return res.redirect('/recipe')
-})
+// routes.get('/', function (req, res) {
+//     return res.redirect('/recipe')
+// })
 routes.get('/recipe', recipe.index)
 routes.get('/recipe/details/:id', recipe.show)
 routes.get('/recipe/create', recipe.create)

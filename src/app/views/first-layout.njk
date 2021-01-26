@@ -11,7 +11,22 @@
 
     <body>
         <div class="container">
-            {% block header %}{% endblock %}
+
+            <header class="container-header">
+                <div class="img">
+                    <a href="/admin/index"><img src="/assets/logo1.png" alt="Logo"></a>
+                </div>
+
+                <a href="/admin/about" class="selected">Sobre</a>
+                <a href="/admin/recipe">Receitas</a>
+                <a href="/admin/chefs">Chefs</a>
+
+                <form action="/admin" method="get">
+                    <input type="text" name="filter" placeholder="Pesquisar" value="{{filter}}">
+
+                    <button type="submit">Buscar</button>
+                </form>
+            </header>
 
             {% block content %}{% endblock %}
         </div>
@@ -20,6 +35,19 @@
         </footer>
 
         <script src="/js/script.js"></script>
+        <script>
+            const currentPage = location.pathname
+
+            const menuItems = document.querySelectorAll(".container-header a")
+
+            for (item of menuItems) {
+                if (currentPage.includes(item.getAttribute("href"))) {
+                    item
+                        .classList
+                        .add("active")
+                }
+            }
+        </script>
     </body>
 
 </html>

@@ -8,7 +8,10 @@ const {
 
 module.exports = {
     all(callback) {
-        db.query('SELECT * FROM chefs', function (err, results) {
+        db.query(`SELECT chefs.*, COUNT(recipes) AS total_recipes
+        FROM chefs
+        LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
+        GROUP BY chefs.id`, function (err, results) {
             if (err) {
                 throw ('DataBase error ' + err.message)
             }

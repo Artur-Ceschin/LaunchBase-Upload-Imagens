@@ -16,6 +16,7 @@ module.exports = {
             }
 
             callback(results.rows)
+            
         })
     },
     create(data, callback) {
@@ -61,12 +62,12 @@ module.exports = {
             callback(results.rows[0])
         })
     },
-    findBy(id, callback) {
+    findBy(filter, callback) {
         db.query(`
           SELECT recipes.*, chefs.name AS chef_name
           FROM recipes
           LEFT JOIN chefs ON (recipes.chef_id =  chefs.id)
-          WHERE recipes.title ILIKE '%${id}%'
+          WHERE recipes.title ILIKE '%${filter}%'
           GROUP BY recipes.id, chefs.name
           `, function(err, results) {
           if(err) throw `Database error! ${err}`
