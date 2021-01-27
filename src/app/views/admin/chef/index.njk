@@ -5,7 +5,7 @@
         <h2>Gerenciar Chefs</h1>
 
         <button>
-            <a href="/chef/create">Novo Chef</a>
+            <a href="admin/chef/create">Novo Chef</a>
         </button>
     </div>
     <div class="cards-chef">
@@ -15,7 +15,7 @@
                 <img class="chef-img" src="{{ chef.avatar_url}}" alt="">
                 <div class="text">
                     <p>{{chef.name}}</p>
-                    <a href="/chef/details/{{chef.id}}">Vizualizar</a>
+                    <a href="admin/chef/details/{{chef.id}}">Vizualizar</a>
                 </div>
             </div>
         {% endfor %}

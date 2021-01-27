@@ -4,7 +4,14 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
-
+html,
+body {
+  min-height: 100vh;
+}
+body {
+    display: flex;
+    flex-direction: column;
+  }
 .container {
     max-width: 940px;
     margin: 0 auto;
@@ -92,6 +99,7 @@
 .cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
 }
 
 .cards .card {
@@ -120,9 +128,9 @@
 
 /* CHEF-PAGE */
 .cards-chef {
+    margin-top: 80px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-
 }
 
 .cards-chef .card-chef {
@@ -151,18 +159,17 @@
 
 /* FOOTER */
 footer {
-    position: fixed;
-    background-color: #EEEEEE;
-    text-align: center;
     width: 100%;
-    bottom: 0;
-}
-
-footer p {
-    padding: 2.1% 0 2.1% 0;
-    font-size: 14px;
+    padding: 25px 0;
+    margin-top: auto;
+    background: #eeeeee;
+  }
+  
+  footer p {
     color: #999999;
-}
+    font-size: 15px;
+    text-align: center;
+  }
 
 /* ACTIVE */
 

@@ -6,13 +6,13 @@ module.exports = {
     index(req, res) {
 
         Recipe.all(function(recipes){
-            return res.render('recipe/index', {recipes})
+            return res.render('admin/recipe/index', {recipes})
         })
 
     },
     create(req, res) {
         Recipe.chefsSelectOptions(function(options) {
-            return res.render('recipe/create', { chefOptions: options })
+            return res.render('admin/recipe/create', { chefOptions: options })
         })
     },
     post(req, res) {    
@@ -37,7 +37,7 @@ module.exports = {
                 return res.send('Recipe not found')
             }
 
-            return res.render('recipe/details', {recipies})
+            return res.render('admin/recipe/details', {recipies})
         })
     },
     edit(req, res) {
@@ -46,7 +46,7 @@ module.exports = {
                 return res.send('Recipe not found')
             }
 
-            return res.render(`recipe/edit`, {recipies})
+            return res.render(`admin/recipe/edit`, {recipies})
         })
     },
     put(req, res) {
@@ -59,12 +59,12 @@ module.exports = {
 
         }
         Recipe.update(req.body, function(){
-            return res.redirect(`/recipe/details/${req.body.id}`)
+            return res.redirect(`/admin/recipe/details/${req.body.id}`)
         })
     },
     delete(req, res) {
         Recipe.delete(req.body.id, function(){
-            return res.redirect(`/recipe/`)
+            return res.redirect(`/admin/recipe/`)
         })
     }
 }

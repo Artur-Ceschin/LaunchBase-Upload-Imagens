@@ -2,13 +2,13 @@ const Chef = require('../model/Chef')
 module.exports = {
     index(req, res) {
         Chef.all(function (chefs) {
-            return res.render('chef/index', {
+            return res.render('admin/chef/index', {
                 chefs
             })
         })
     },
     create(req, res) {
-        return res.render('chef/create')
+        return res.render('admin/chef/create')
     },
     post(req, res) {
         const keys = Object.keys(req.body)
@@ -21,7 +21,7 @@ module.exports = {
         }
 
         Chef.create(req.body, function (chef) {
-            return res.redirect(`chef/details/${chef.id}`)
+            return res.redirect(`admin/chef/details/${chef.id}`)
         })
     },
     show(req, res) {
@@ -30,7 +30,7 @@ module.exports = {
                 return res.send('Chef not found')
             }
             Chef.findChefRecipes(req.params.id, function (recipes) {
-                return res.render('chef/details', {
+                return res.render('admin/chef/details', {
                     chefs,
                     recipes
                 })
@@ -44,7 +44,7 @@ module.exports = {
                 return res.send('Chef not found')
             }
 
-            return res.render('chef/edit', {
+            return res.render('admin/chef/edit', {
                 chefs
             })
         })
@@ -60,7 +60,7 @@ module.exports = {
         }
 
         Chef.update(req.body, function () {
-            return res.redirect(`chef/details/${req.body.id}`)
+            return res.redirect(`admin/chef/details/${req.body.id}`)
         })
     },
     delete(req, res) {

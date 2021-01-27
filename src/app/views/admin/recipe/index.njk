@@ -5,7 +5,7 @@
         <h2>Gerenciar receitas</h1>
 
         <button>
-            <a href="/recipe/create">Nova receita</a>
+            <a href="/admin/recipe/create">Nova receita</a>
         </button>
     </div>
     <div class="cards">
@@ -16,7 +16,7 @@
                 <div class="text">
                     <p>{{recipie.title}}</p>
                     <p>{{recipie.chef_name}}</p>
-                    <a href="/recipe/details/{{recipie.id}}">Vizualizar</a>
+                    <a href="/admin/recipe/details/{{recipie.id}}">Vizualizar</a>
                 </div>
             </div>
         {% endfor %}

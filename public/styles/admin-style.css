@@ -104,6 +104,10 @@ h2 {
 .cards-chef{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 60px;
+}
+.cards-chef .card{
+    margin-bottom: 40px;
 }
 .cards-chef .card img{
     width: 64px;

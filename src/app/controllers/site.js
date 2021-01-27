@@ -10,14 +10,14 @@ module.exports = {
 
         if (filter) {
             Recipe.findBy(filter, function (recipes) {
-                return res.render('admin/index', {
+                return res.render('site/index', {
                     recipes,
                     filter
                 })
             })
         } else {
             Recipe.all(function (recipes) {
-                return res.render('admin/index', {
+                return res.render('site/index', {
                     recipes
                 })
             })
@@ -25,7 +25,7 @@ module.exports = {
 
     },
     about(req, res) {
-        return res.render('admin/about')
+        return res.render('site/about')
     },
     show(req, res) {
         let {
@@ -34,14 +34,14 @@ module.exports = {
 
         if (filter) {
             Recipe.findBy(filter, function (recipes) {
-                return res.render('admin/recipe', {
+                return res.render('site/recipe', {
                     recipes,
                     filter
                 })
             })
         } else {
             Recipe.all(function (recipes) {
-                return res.render('admin/recipe', {
+                return res.render('site/recipe', {
                     recipes
                 })
             })
@@ -49,7 +49,7 @@ module.exports = {
     },
     chef(req, res) {
         Chef.all(function (chefs) {
-            return res.render('admin/chef', {chefs})
+            return res.render('site/chef', {chefs})
         })
     }
 }
