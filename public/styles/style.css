@@ -104,6 +104,7 @@ body {
 
 .cards .card {
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 
@@ -113,6 +114,12 @@ body {
     object-fit: cover;
     border-radius: 6%;
     margin-bottom: 4%;
+}
+
+.cards .card a {
+    text-decoration: none;
+    color: #6558C3;
+    line-height: 28px;
 }
 
 .card h3 {
@@ -175,4 +182,30 @@ footer {
 
 .active{
     font-weight: bold;
+}
+
+/* PAGINAÇÃO */
+
+.container-cards{
+    display:flex;
+    flex-direction: column;
+    min-height: 80vh;
+}
+
+.pagination-container{
+    margin-top: auto;
+    text-align: center;
+}
+.pagination a,
+.pagination span{
+    padding: 4px 8px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #eeeeee;
+    background-color: #6558C3;
+    margin-right: 2px;
+}
+
+.pagination a:hover{
+    filter: brightness(125%);
 }

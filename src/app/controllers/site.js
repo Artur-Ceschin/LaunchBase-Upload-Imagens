@@ -4,7 +4,7 @@ const Chef = require('../model/Chef')
 module.exports = {
     index(req, res) {
 
-        let {
+        const {
             filter
         } = req.query
 
@@ -22,34 +22,51 @@ module.exports = {
                 })
             })
         }
+
 
     },
     about(req, res) {
         return res.render('site/about')
     },
     show(req, res) {
+
         let {
-            filter
+            filter,
+            page,
+            limit
         } = req.query
 
-        if (filter) {
-            Recipe.findBy(filter, function (recipes) {
+        page = page || 1
+        limit = limit || 6
+
+        let offset = limit * (page - 1)
+
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(recipes) {
+                let pagination = {
+                    page,
+                    total: Math.ceil(recipes[0].total / limit)
+                }
                 return res.render('site/recipe', {
                     recipes,
-                    filter
+                    filter,
+                    pagination
                 })
-            })
-        } else {
-            Recipe.all(function (recipes) {
-                return res.render('site/recipe', {
-                    recipes
-                })
-            })
+            }
         }
+
+        Recipe.paginate(params)
+
     },
     chef(req, res) {
         Chef.all(function (chefs) {
-            return res.render('site/chef', {chefs})
+            return res.render('site/chef', {
+                chefs
+            })
         })
     }
 }
