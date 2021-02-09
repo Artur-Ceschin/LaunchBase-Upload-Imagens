@@ -19,11 +19,8 @@ routes.get('/site/chefs', site.chef)
 
 routes.get('/site/details/:id', recipe.show)
 
-// routes.get('/', function (req, res) {
-//     return res.redirect('/recipe')
-// })
+//RECIPE
 routes.get('/admin', recipe.index)
-routes.get('/recipe', recipe.index)
 routes.get('/admin/recipe', recipe.index)
 routes.get('/admin/recipe/details/:id', recipe.show)
 routes.get('/admin/recipe/create', recipe.create)

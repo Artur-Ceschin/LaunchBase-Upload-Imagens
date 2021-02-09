@@ -6,7 +6,7 @@
             {{ chefs.name}}</h2>
 
         <button>
-            <a href="admin/chef/{{ chefs.id}}/edit">Ediar Chef</a>
+            <a href="/admin/chef/{{ chefs.id}}/edit">Ediar Chef</a>
         </button>
     </div>
 
@@ -27,7 +27,7 @@
                     <div class="text">
                         <p>{{recipie.title}}</p>
                         <p>{{recipie.author}}</p>
-                        <a href="admin//recipe/details/{{recipie.id}}">Vizualizar</a>
+                        <a href="/admin/recipe/details/{{recipie.id}}">Vizualizar</a>
                     </div>
                 </div>
             {% endfor %}

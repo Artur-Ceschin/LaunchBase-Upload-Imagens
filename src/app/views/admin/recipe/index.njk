@@ -1,25 +1,31 @@
 {% extends 'layout.njk' %}
 
 {% block content %}
-    <div class="info">
-        <h2>Gerenciar receitas</h1>
+    <div class="container-cards">
+        <div class="info">
+            <h2>Gerenciar receitas</h1>
 
-        <button>
-            <a href="admin/recipe/create">Nova receita</a>
-        </button>
-    </div>
-    <div class="cards">
+            <button>
+                <a href="/admin/recipe/create">Nova receita</a>
+            </button>
+        </div>
+        <div class="cards">
 
-        {% for recipie in recipes %}
-            <div class="card">
-                <img src="{{ recipie.image}}" alt="">
-                <div class="text">
-                    <p>{{recipie.title}}</p>
-                    <p>{{recipie.chef_name}}</p>
-                    <a href="/admin/recipe/details/{{recipie.id}}">Vizualizar</a>
+            {% for recipie in recipes %}
+                <div class="card" id="{{recipie.id}}">
+                    <img src="{{ recipie.image}}" alt="">
+                    <div class="text">
+                        <p>{{recipie.title}}</p>
+                        <p>{{recipie.chef_name}}</p>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
 
+        </div>
+
+        <div class="pagination-container">
+            <div class="pagination" data-page="{{pagination.page}}" data-total="{{pagination.total}}"></div>
+        </div>
     </div>
+
 {% endblock content %}

@@ -15,8 +15,8 @@
             <div class="header-content">
                 <a href="/"><img src="/assets/logo.png" alt="Logo Foodfy"></a>
                 <div class="links">
-                    <a href="/recipe">Receitas</a>
-                    <a href="/chef">Chef</a>
+                    <a href="/admin/recipe">Receitas</a>
+                    <a href="/admin/chef">Chef</a>
                 </div>
             </div>
         </header>
@@ -24,7 +24,20 @@
         <div class="container">
             {% block content %}{% endblock content %}
         </div>
-        <script src="/js/active.js"></script>
         <script src="/js/script.js"></script>
+        <script src="/js/paginate.js"></script>
+        <script>
+            const currentPage = location.pathname
+
+            const menuItems = document.querySelectorAll(".header-content .links a")
+
+            for (item of menuItems) {
+                if (currentPage.includes(item.getAttribute("href"))) {
+                    item
+                        .classList
+                        .add("active")
+                }
+            }
+        </script>
     </body>
 </html>
