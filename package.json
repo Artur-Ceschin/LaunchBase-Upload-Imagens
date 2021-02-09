@@ -1,12 +1,12 @@
 {
-  "name": "Inciando-no-Back-end",
+  "name": "Launchbase-Upload-Imagens",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "start": "npm-run-all -p nodemon browsersync",
     "nodemon": "nodemon src/server",
-    "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'public, src/app/views"
+    "browsersync": "browser-sync start --proxy http://localhost:5500 --files 'public, src/app/views"
   },
   "repository": {
     "type": "git",
