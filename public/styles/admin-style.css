@@ -279,3 +279,14 @@ form textarea {
 .pagination a:hover{
     filter: brightness(125%);
 }
+
+/* IMAGENS UPLOAD */
+form #photo-upload{
+    width: auto;
+    height: 150px;
+}
+
+
+form #photos-input{
+    
+}
