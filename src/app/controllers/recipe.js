@@ -41,7 +41,7 @@ module.exports = {
             })
         })
     },
-    post(req, res) {
+    async post(req, res) {
         const keys = Object.keys(req.body)
 
         for (key of keys) {
@@ -51,11 +51,15 @@ module.exports = {
 
         }
 
-        Recipe.create(req.body, function (item) {
-            return res.redirect(`/admin/recipe/details/${item.id}`)
-        })
+        // Recipe.create(req.body, function (item) {
+        //     return res.redirect(`/admin/recipe/details/${item.id}`)
+        // })
 
-        return
+        const results = await Recipe.create(req.body)
+        // const recipeId = results.rows[0].id
+
+        return res.redirect('admin/recipe')
+
     },
     show(req, res) {
         Recipe.find(req.params.id, function (recipies) {

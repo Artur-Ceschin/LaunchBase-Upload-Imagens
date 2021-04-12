@@ -16,10 +16,10 @@ module.exports = {
             }
 
             callback(results.rows)
-            
+
         })
     },
-    create(data, callback) {
+    create(data) {
         const query = `
         INSERT INTO recipes (
             chef_id,
@@ -43,13 +43,7 @@ module.exports = {
             date(Date.now()).iso
         ]
 
-        db.query(query, values, function (err, results) {
-            if (err) {
-                throw ('DataBase error ' + err)
-            }
-
-            callback(results.rows[0])
-        })
+        return db.query(query, values)
     },
     find(id, callback) {
         db.query(`SELECT recipes.*, chefs.name AS chef_name
@@ -69,12 +63,12 @@ module.exports = {
           LEFT JOIN chefs ON (recipes.chef_id =  chefs.id)
           WHERE recipes.title ILIKE '%${filter}%'
           GROUP BY recipes.id, chefs.name
-          `, function(err, results) {
-          if(err) throw `Database error! ${err}`
-          
-          callback(results.rows)
+          `, function (err, results) {
+            if (err) throw `Database error! ${err}`
+
+            callback(results.rows)
         })
-      },
+    },
     update(data, callback) {
 
         const query = `
@@ -104,11 +98,11 @@ module.exports = {
 
             return callback()
         })
-            
+
     },
     delete(id, callback) {
         db.query(`DELETE FROM recipes WHERE id = $1`, [id], function (err, results) {
-            if(err){
+            if (err) {
                 throw ('DataBase error ' + err)
             }
 
@@ -116,13 +110,13 @@ module.exports = {
         })
     },
     chefsSelectOptions(callback) {
-        db.query(`SELECT name, id FROM chefs`, function(err, results) {
+        db.query(`SELECT name, id FROM chefs`, function (err, results) {
             if (err) throw 'Database Error!'
 
             callback(results.rows)
         })
     },
-    paginate(params){
+    paginate(params) {
 
         let {
             filter,

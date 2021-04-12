@@ -1,23 +1,23 @@
 
 const cards = document.querySelectorAll('.card');
 
-for (let card of cards){
-    card.addEventListener("click", function(){
+for (let card of cards) {
+    card.addEventListener("click", function () {
         const id = card.getAttribute("id");
-        window.location.href=`/admin/recipe/details/${id}`
+        window.location.href = `/admin/recipe/details/${id}`
     })
 }
 
 //DELETAR
-const formDelete = document.querySelector("#form-delete")
+// const formDelete = document.querySelector("#form-delete")
 
-formDelete.addEventListener("submit", (event) => {
-    const confirmation = confirm("Deseja deletar ?")
+// formDelete.addEventListener("submit", (event) => {
+//     const confirmation = confirm("Deseja deletar ?")
 
-    if (!confirmation) {
-        event.preventDefault()
-    }
-})
+//     if (!confirmation) {
+//         event.preventDefault()
+//     }
+// })
 
 //ACTIVE
 // const currentPage = location.pathname

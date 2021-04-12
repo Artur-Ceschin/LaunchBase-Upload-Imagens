@@ -4,7 +4,7 @@
 
     <div>
         <div class="info">
-            <h2>Editando receita</h2>
+            <h2>Editando conta do Chef</h2>
             <form id="form-delete" method="POST" action="/chef?_method=DELETE">
                 <button type="submit">
                     Deletar
@@ -16,7 +16,7 @@
         </div>
         <form id="form-put" method="POST" action="/chef?_method=PUT">
             <button type="submit">
-                Salvar receita
+                Salvar
             </button>
             <input type="hidden" name="id" value="{{chefs.id}}">
 
@@ -33,5 +33,15 @@
         </form>
 
     </div>
-<script src="../../js/delete.js"></script>
+    <script>
+        const formDelete = document.querySelector("#form-delete")
+
+        formDelete.addEventListener("submit", (event) => {
+            const confirmation = confirm("Deseja deletar ?")
+
+            if (!confirmation) {
+                event.preventDefault()
+            }
+        })
+    </script>
 {% endblock content %}
