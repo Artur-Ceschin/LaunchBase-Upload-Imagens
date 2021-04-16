@@ -11,7 +11,20 @@
     </div>
 
     <div class="content">
-        <img src="{{recipies.image}}" alt="">
+        <div class="gallery">
+            <div class="highlight">
+                {% if not files[0] %}
+                    <img src="http://placehold.it/500x500?text=PRODUTO SEM FOTO" alt="">
+                {% else %}
+                    <img src="{{files[0].src}}" alt="{{files[0].name}}">
+                {% endif %}
+            </div>
+            <div class="gallery-preview">
+                {% for image in files %}
+                    <img src="{{image.src}}" alt="{{image.name}}" {% if loop.index0 == 0 %} class="active" {% endif %} onclick="ImageGallery.setImage(event)">
+                {% endfor %}
+            </div>
+        </div>
 
         <div class="content-header">
             <h1>{{ recipies.title }}</h1>
@@ -23,13 +36,15 @@
             <h2>Ingredientes</h2>
             <ul>
                 {% for recipie in recipies.ingredients %}
-                    <li> {{recipie}}</li>
+                    <li>
+                        {{recipie}}</li>
                 {% endfor %}
             </ul>
             <h2>Modo de preparo</h2>
             <ul>
                 {% for recipie in recipies.preparation %}
-                    <li> {{recipie}}</li>
+                    <li>
+                        {{recipie}}</li>
                 {% endfor %}
             </ul>
             <h2>informacoes adicionais</h2>

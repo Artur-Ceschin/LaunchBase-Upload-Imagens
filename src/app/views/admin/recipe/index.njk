@@ -13,7 +13,7 @@
 
             {% for recipie in recipes %}
                 <div class="card" id="{{recipie.id}}">
-                    <img src="{{ recipie.image}}" alt="">
+                    <img src="{{files[0].src}}" alt="">
                     <div class="text">
                         <p>{{recipie.title}}</p>
                         <p>{{recipie.chef_name}}</p>

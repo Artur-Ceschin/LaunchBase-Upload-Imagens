@@ -11,25 +11,40 @@
                 </button>
 
                 <input type="hidden" name="id" value="{{recipies.id}}">
-                
+
             </form>
         </div>
-        <form id="form-put" method="POST" action="/recipe?_method=PUT">
+        <form id="form-put" method="POST" action="/recipe?_method=PUT" enctype="multipart/form-data">
             <button type="submit">
                 Salvar receita
             </button>
             <input type="hidden" name="id" value="{{recipies.id}}">
 
             <h3>Imagem da receita</h3>
-            <div>
-                <input type="url" name="image" placeholder="https://" value="{{recipies.image}}"/>
+            <div class="photo">
+                <div id="photos-upload">
+                    <input id="photos-input" type="file" name="photos" value="{{recipies.image}}" multiple="multiple" accept="image" onchange="PhotosUpload.handleFileInput(event)">
+                    <i class="material-icons">add</i>
+                </div>
+                <div id="photos-preview">
+                    {% if files %}
+                        {% for image in files %}
+                            <div class="photo" id="{{image.id}}">
+                                <img src="{{image.src}}" alt="{{image.name}}">
+                                <i class="material-icons" onclick="PhotosUpload.removeOldPhoto(event)">
+                                    close
+                                </i>
+                            </div>
+                        {% endfor %}
+                        <input type="hidden" name="removed_files">
+                    {% endif %}
+                </div>
             </div>
 
             <h3>Nome da receita</h3>
             <div>
                 <input type="text" name="title" value="{{recipies.title}}"/>
             </div>
-
 
             <h3>Ingredientes</h3>
             <div class="ingredientsEditInputAll">

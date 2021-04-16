@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <form method="POST" action="/recipe">
+    <form method="POST" action="/recipe" enctype="multipart/form-data">
         <div class="info">
             <h2>Criando receita</h1>
 
@@ -11,8 +11,12 @@
             </button>
         </div>
         <h3>Imagem da receita</h3>
-        <div>
-            <input type="text" name="image" value="{{recipies.image}}">
+        <div class="photo">
+            <div id="photos-upload">
+                <input id="photos-input" type="file" name="photos" value="{{recipies.image}}" multiple="multiple" accept="image" onchange="PhotosUpload.handleFileInput(event)">
+                <i class="material-icons">add</i>
+            </div>
+            <div id="photos-preview"></div>
         </div>
 
         <h3>Nome da receita</h3>
@@ -25,6 +29,7 @@
             <div class="ingredientsEditInput space">
                 <input type="text" placeholder="12 Colheres de Chá de Açúcar" name="ingredients[]" value="{{recipies.ingredients}}">
             </div>
+
         </div>
         <button class="AddButton" type="button" id="addIngredients">Adicionar novo ingrediente</button>
 
