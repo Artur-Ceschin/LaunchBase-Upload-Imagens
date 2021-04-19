@@ -1,47 +1,35 @@
 const express = require('express')
 const routes = express.Router()
 const multer = require('./app/middlewares/multer')
-const recipe = require('./app/controllers/recipe')
-const chef = require('./app/controllers/chef')
-const site = require('./app/controllers/site')
-// const starter = require('./app/controllers/starter')
 
-routes.get('/', site.index)
+const ChefController = require('./app/controllers/ChefController')
+const RecipeController = require('./app/controllers/RecipeController')
+const HomeController = require('./app/controllers/HomeController')
+const SearchController = require('./app/controllers/SearchController')
 
-routes.get('/site/index', site.index)
+routes.get("/", function(req, res){
+    return res.render('admin/layout')
+})
 
-routes.get('/site/about', site.about)
+//Search recipes
+routes.get("/recipes/search", SearchController.index)
 
-routes.get('/site/recipe', site.show)
+// CHEF ROUTES
+routes.get("/chefs", ChefController.index)
+routes.get("/chefs/create", ChefController.create)
+routes.get("/chefs/:id", ChefController.show)
+routes.get("/chefs/:id/edit", ChefController.edit)
+routes.post("/chefs", multer.array('profile_photo', 1), ChefController.post)
+routes.put("/chefs", multer.array('profile_photo', 1), ChefController.put)
+routes.delete("/chefs", ChefController.delete)
 
-routes.get('/site', site.show)
-
-routes.get('/site/chefs', site.chef)
-
-routes.get('/site/details/:id', recipe.show)
-
-//RECIPE
-routes.get('/admin', recipe.index)
-routes.get('/admin/recipe', recipe.index)
-routes.get('/admin/recipe/details/:id', recipe.show)
-routes.get('/admin/recipe/create', recipe.create)
-routes.get('/admin/recipe/:id/edit', recipe.edit)
-
-
-routes.post('/recipe', multer.array('photos', 5), recipe.post)
-routes.put('/recipe', multer.array('photos', 5), recipe.put)
-routes.delete('/recipe', recipe.delete)
-
-
-// CHEF
-routes.get('/chef', chef.index)
-routes.get('/admin/chef', chef.index)
-routes.get('/admin/chef/create', chef.create)
-routes.get('/admin/chef/details/:id', chef.show)
-routes.get('/admin/chef/:id/edit', chef.edit)
-
-routes.post('/chef', chef.post)
-routes.put('/chef', chef.put)
-routes.delete('/chef', chef.delete)
+//RECIPE ROUTES
+routes.get("/recipes", HomeController.index)
+routes.get("/recipes/create", RecipeController.create)
+routes.get("/recipes/:id", RecipeController.show)
+routes.get("/recipes/:id/edit", RecipeController.edit)
+routes.post("/recipes", multer.array('photos_recipes', 5), RecipeController.post)
+routes.put("/recipes", multer.array('photos_recipes', 5), RecipeController.put)
+routes.delete("/recipes", RecipeController.delete)
 
 module.exports = routes

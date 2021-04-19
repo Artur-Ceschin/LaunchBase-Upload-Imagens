@@ -1,27 +1,26 @@
 const multer = require('multer')
 
 const storage = multer.diskStorage({
-    destination: (req, file, callback) => {
-        callback(null, './public/images')
+    destination: (req, file, cb) => {
+        cb(null, './public/images')
     },
-    filename: (req, file, callback) => {
-        callback(null, `${Date.now().toString()}-${file.originalname}`)
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now().toString()}-${file.originalname}`)
     }
 })
 
-//O tipo de imagem
-const fileFilter = (req, file, callback) => {
-    const isAccepted = ['image/png', 'image/jpeg', 'image/jpg']
-        .find(acceptedFormat => acceptedFormat == file.mimetype)
+const fileFilter = (req, file, cb) => {
+    const isAccepted = ['image/png', 'image/jpg', 'image/jpeg']
+    .find(acceptedFormat => acceptedFormat == file.mimetype)
 
-    if (isAccepted) {
-        return callback(null, true)
+    if(isAccepted) {
+        return cb(null, true)
     }
 
-    return callback(null, false)
+    return cb(null, false)
 }
 
-module.exports = multer({
+module.exports = multer ({
     storage,
     fileFilter
 })
